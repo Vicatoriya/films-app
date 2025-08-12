@@ -1,0 +1,16 @@
+@import '@fontsource/inter';
+@import '@fontsource-variable/noto-sans-hebrew';
+@import '@fontsource/roboto';
+@import 'tailwindcss';
+
+body {
+	font-family: 'Inter', sans-serif;
+}
+
+.hebrew-font {
+	font-family: 'Noto Sans Hebrew Variable', sans-serif;
+}
+
+.roboto-font {
+	font-family: 'Roboto', sans-serif;
+}
