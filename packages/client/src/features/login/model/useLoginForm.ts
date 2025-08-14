@@ -2,7 +2,7 @@ import { useFormik, FormikErrors } from 'formik';
 import { useMutation } from '@apollo/client';
 import { loginSchema, LoginFormValues } from './schema';
 import { formatPhoneNumberInput } from '@shared/lib/formatPhoneNumberInput';
-import { LOGIN_USER } from '../model/mutations';
+import { LOGIN_USER } from './mutations';
 import type { LoginUserData, LoginUserVars } from '@entities/user/model';
 import type { ApolloError, FetchResult } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';

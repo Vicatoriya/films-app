@@ -1,7 +1,7 @@
 import { useFormik, FormikErrors } from 'formik';
 import { useMutation } from '@apollo/client';
 import { RegistrationFormValues, registrationSchema } from './schema';
-import { REGISTER_USER } from '../model/mutations';
+import { REGISTER_USER } from './mutations';
 import type { ApolloError, FetchResult } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import type { RegisterUserData, RegisterUserVars } from '@entities/user/model';
