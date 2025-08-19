@@ -2,8 +2,8 @@ import { useFormik, FormikErrors } from 'formik';
 import { useMutation } from '@apollo/client';
 import { loginSchema, LoginFormValues } from './schema';
 import { formatPhoneNumberInput } from '@shared/lib/formatPhoneNumberInput';
-import { LOGIN_USER } from './mutations';
-import type { LoginUserData, LoginUserVars } from '@entities/user/model';
+import { LOGIN_USER } from '../api/login.gql';
+import type { LoginUserData, LoginUserVars } from '@entities/user/model/types';
 import type { ApolloError, FetchResult } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 
@@ -44,7 +44,7 @@ export const useLoginForm = () => {
 
 				console.log('User logged in:', response.data.login);
 
-				await navigate('/films');
+				await navigate('/films', { replace: true });
 			} catch (e) {
 				const apolloError = e as ApolloError;
 				console.error('Login error:', apolloError);

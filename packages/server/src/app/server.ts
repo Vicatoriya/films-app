@@ -1,5 +1,5 @@
 import server from './apollo';
 
 server.listen().then(() => {
-  console.log('Server ready');
+	console.log('Server ready');
 });

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { passwordSchema } from '@shared/lib/schema';
+import { passwordSchema } from '@shared/lib/passwordSchema';
 
 export const registrationSchema = z
 	.object({

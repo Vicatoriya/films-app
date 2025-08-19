@@ -2,7 +2,7 @@ import { useLoginForm } from '../model/useLoginForm';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
 import { Link } from 'react-router-dom';
-import { Toast } from '@widgets/Toast/ui/Toast';
+import { Toast } from '@widgets/toast/ui';
 
 export const LoginForm = () => {
 	const formik = useLoginForm();

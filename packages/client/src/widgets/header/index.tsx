@@ -1,0 +1,39 @@
+import Search from '@features/search/ui';
+import { AppLogoText } from '@shared/ui/AppLogoText';
+
+const Header: React.FC = () => {
+	return (
+		<header className="py-3 pl-3 pr-10 md:pr-12">
+			<div className="flex flex-col sm:flex-row sm:items-center justify-between">
+				<div className="flex items-center justify-between w-full sm:w-auto">
+					<AppLogoText
+						textClasses="text-[#F4802399] font-bold text-[22px] sm:text-2xl"
+						logoClasses="w-7 sm:w-12"
+					/>
+					<button
+						type="button"
+						className="bg-blue-500 text-white px-3 py-1 rounded-sm text-sm sm:hidden"
+					>
+						Новая кнопка
+					</button>
+				</div>
+				<div className="mt-6 sm:mt-0 flex-1 flex justify-center sm:mx-4">
+					<Search />
+				</div>
+				<svg
+					className="hidden sm:block w-6 h-6"
+					viewBox="0 0 24 24"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 3C16.96 3 21 7.04 21 12C21 13.42 20.66 14.76 20.07 15.96C18.54 14.24 16.09 13.07 12.69 12.93C14.57 12.6 16 10.97 16 9C16 6.79 14.21 5 12 5C9.79 5 8 6.79 8 9C8 10.97 9.43 12.6 11.31 12.93C7.91 13.07 5.46 14.24 3.93 15.96C3.34 14.76 3 13.42 3 12C3 7.04 7.04 3 12 3ZM9 9C9 7.35 10.35 6 12 6C13.65 6 15 7.35 15 9C15 10.65 13.65 12 12 12C10.35 12 9 10.65 9 9ZM12 21C8.84 21 6.06 19.36 4.45 16.88C6.01 14.93 8.61 13.9 12 13.9C15.39 13.9 17.99 14.93 19.55 16.88C17.94 19.36 15.16 21 12 21Z"
+						fill="#065FD4"
+					/>
+				</svg>
+			</div>
+		</header>
+	);
+};
+
+export default Header;

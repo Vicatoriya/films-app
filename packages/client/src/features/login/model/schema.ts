@@ -1,4 +1,4 @@
-import { passwordSchema } from '@shared/lib/schema';
+import { passwordSchema } from '@shared/lib/passwordSchema';
 import { z } from 'zod';
 
 export const loginSchema = z.object({

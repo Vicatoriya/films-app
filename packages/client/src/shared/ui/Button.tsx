@@ -5,7 +5,7 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 export const Button: React.FC<ButtonProps> = ({ label, type, ...props }) => {
 	return (
 		<button
-      type={type}
+			type={type}
 			{...props}
 			className="
         bg-[#F48023]

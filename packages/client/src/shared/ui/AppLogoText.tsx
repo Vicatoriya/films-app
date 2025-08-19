@@ -1,20 +1,20 @@
 import { LogoIcon } from '@shared/icons/LogoIcon';
 
 interface AppLogoTextProps {
-	textSizeClasses?: string;
-	logoWidthClasses?: string;
+	textClasses?: string;
+	logoClasses?: string;
 }
 
 export const AppLogoText: React.FC<AppLogoTextProps> = ({
-	textSizeClasses = 'text-base',
-	logoWidthClasses = 'w-6 h-auto',
+	textClasses = 'text-base',
+	logoClasses = 'h-auto',
 }) => (
 	<div
-		className={`flex items-center gap-1 tracking-tighter hebrew-font font-bold relative z-10 text-center ${textSizeClasses}`}
+		className={`flex items-center gap-1  relative z-10 text-center ${textClasses}`}
 	>
-		<div className={`${logoWidthClasses} flex-shrink-0 min-w-18`}>
+		<div className={`${logoClasses} flex-shrink-0`}>
 			<LogoIcon />
 		</div>
-		ModsenFilms
+		<span className="tracking-tighter hebrew-font font-bold">ModsenFilms</span>
 	</div>
 );
