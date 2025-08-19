@@ -8,9 +8,24 @@ const VideoCard: React.FC<VideoCardProps> = ({
 	thumbnailSrc,
 	duration,
 	authorImage,
+	onCardClick,
+	...videoData
 }) => {
 	return (
-		<div>
+		<div
+			onClick={() =>
+				onCardClick({
+					title,
+					author,
+					views,
+					uploadTime,
+					duration,
+					authorImage,
+					thumbnailSrc,
+					...videoData,
+				})
+			}
+		>
 			<div className="relative">
 				<img
 					src={thumbnailSrc}

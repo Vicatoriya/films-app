@@ -1,5 +1,6 @@
-import { VideoCardProps } from '@entities/video/model/types';
+import { VideoData } from '@entities/video/model/types';
 
 export interface VideoCardGridProps {
-	videoData: (VideoCardProps & { id: number })[];
+	videoData: VideoData[];
+	onCardClick: (video: VideoData) => void;
 }

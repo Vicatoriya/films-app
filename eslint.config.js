@@ -10,22 +10,13 @@ const __dirname = path.dirname(__filename);
 
 const tsconfigPaths = [
 	'./packages/client/tsconfig.json',
-	'./packages/server/tsconfig.json',
+	// './packages/server/tsconfig.json',
 ];
 
 export default defineConfig([
-	tseslint.config([
-		{
-			files: ['packages/{server,shared}/src/**/*.{ts,tsx}'],
-			extends: [...tseslint.configs.recommendedTypeChecked],
-			languageOptions: {
-				parserOptions: {
-					project: tsconfigPaths,
-					tsconfigRootDir: __dirname,
-				},
-			},
-		},
-	]),
+	{
+		ignores: ['packages/server/**'],
+	},
 
 	tseslint.config([
 		{

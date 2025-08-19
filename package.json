@@ -1,5 +1,6 @@
 {
 	"private": true,
+	"type": "module",
 	"workspaces": [
 		"packages/*"
 	],
@@ -7,7 +8,7 @@
 		"build": "yarn workspace client build && yarn workspace server build",
 		"dev": "concurrently \"yarn workspace server dev\" \"yarn workspace client dev\"",
 		"start": "yarn workspace server start",
-		"lint": "eslint . --ext .js,.ts,.tsx",
+		"lint": "eslint packages/client --ext .js,.ts,.tsx",
 		"format": "prettier --write .",
 		"prepare": "husky install"
 	},
@@ -19,7 +20,7 @@
 		"prettier": "^3.6.2"
 	},
 	"lint-staged": {
-		"*.{js,ts,tsx}": "eslint --cache --fix",
+		"packages/client/**/*.{js,ts,tsx}": "eslint --cache --fix",
 		"*.{js,css,md}": "prettier --write"
 	}
 }

@@ -1,6 +1,6 @@
 import { RegistrationForm } from '@features/registration/index';
 import { RegistrationSidebar } from '@widgets/registration-sidebar';
-import { AuthLayout } from '@widgets/auth-layout';
+import AuthLayout from '@widgets/auth-layout/ui';
 
 export const RegistrationPage = () => {
 	return (

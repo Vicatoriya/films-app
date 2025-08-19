@@ -1,6 +1,6 @@
 import { LoginForm } from '@features/login';
 import { LoginSidebar } from '@widgets/login-sidebar';
-import { AuthLayout } from '@widgets/auth-layout';
+import AuthLayout from '@widgets/auth-layout/ui';
 
 export const LoginPage = () => {
 	return (
