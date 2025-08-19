@@ -70,7 +70,7 @@ export const RegistrationSidebar = () => {
 			</div>
 			<AppLogoText
 				textClasses="text-4xl sm:text-5xl xl:text-6xl 2xl:text-[68px]"
-				logoClasses="w-8 sm:w-[78px] h-[46px] lg:w-[100px] lg:h-[66px] flex-shrink-0"
+				logoClasses="w-8 w-[78px] h-[46px] lg:w-[100px] lg:h-[66px] flex-shrink-0"
 			/>
 		</div>
 	);

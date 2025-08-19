@@ -4,12 +4,12 @@ import VideoFilter from '@features/video-filter/ui/VideoFilter';
 import VideoCardGrid from '@widgets/video-grid/ui';
 import { useModal } from '@shared/lib/useModal';
 import ExitConfirmModal from '@features/logout/ui';
-import { useLogout } from '@features/logout/model/useLogout';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { AppLogoText } from '@shared/ui/AppLogoText';
 import { VideoData } from '@entities/video/model/types';
 import VideoPlayerModal from '@features/video-player-modal/ui';
+import { userStore } from '@entities/user/model/user-store';
 
 const videoData: VideoData[] = Array.from({ length: 12 }).map((_, i) => ({
 	id: i + 1,
@@ -49,11 +49,9 @@ export const MainPage = () => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
 
-	const { logout } = useLogout();
-
 	const handleConfirmExit = () => {
 		closeExitModal();
-		void logout().then(() => navigate('/login'));
+		void userStore.logout().then(() => navigate('/login'));
 	};
 
 	const handleVideoCardClick = (video: VideoData) => {

@@ -3,8 +3,7 @@ export interface User {
 	name: string;
 	email?: string | null;
 	phone?: string | null;
-	password: string;
-	sessionId?: string | null;
+	sessionId: string | null;
 }
 
 export interface RegisterUserVars {

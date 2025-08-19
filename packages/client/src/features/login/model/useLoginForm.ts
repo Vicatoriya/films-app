@@ -1,18 +1,11 @@
 import { useFormik, FormikErrors } from 'formik';
-import { useMutation } from '@apollo/client';
 import { loginSchema, LoginFormValues } from './schema';
 import { formatPhoneNumberInput } from '@shared/lib/formatPhoneNumberInput';
-import { LOGIN_USER } from '../api/login.gql';
-import type { LoginUserData, LoginUserVars } from '@entities/user/model/types';
-import type { ApolloError, FetchResult } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
+import { userStore } from '@entities/user/model/user-store';
 
 export const useLoginForm = () => {
 	const navigate = useNavigate();
-	const [loginUser, { loading, error, data }] = useMutation<
-		LoginUserData,
-		LoginUserVars
-	>(LOGIN_USER);
 
 	const formatIdentifierInput = (rawValue: string): string => {
 		if (rawValue.includes('@')) {
@@ -26,28 +19,21 @@ export const useLoginForm = () => {
 			identifier: '',
 			password: '',
 		},
-		onSubmit: async (values: LoginFormValues, { setSubmitting }) => {
+		onSubmit: async (values, { setSubmitting }) => {
 			try {
-				const response: FetchResult<LoginUserData> = await loginUser({
-					variables: {
-						email: values.identifier.includes('@') ? values.identifier : null,
-						phone: values.identifier.includes('@')
-							? null
-							: formatPhoneNumberInput(values.identifier),
-						password: values.password,
-					},
+				await userStore.signIn({
+					email: values.identifier.includes('@')
+						? values.identifier
+						: undefined,
+					phone: values.identifier.includes('@')
+						? undefined
+						: formatPhoneNumberInput(values.identifier),
+					password: values.password,
 				});
 
-				if (!response.data) {
-					throw new Error('No data returned from server');
+				if (userStore.isAuthenticated) {
+					void navigate('/films', { replace: true });
 				}
-
-				console.log('User logged in:', response.data.login);
-
-				await navigate('/films', { replace: true });
-			} catch (e) {
-				const apolloError = e as ApolloError;
-				console.error('Login error:', apolloError);
 			} finally {
 				setSubmitting(false);
 			}
@@ -69,5 +55,10 @@ export const useLoginForm = () => {
 		},
 	});
 
-	return { ...formik, formatIdentifierInput, loading, error, data };
+	return {
+		...formik,
+		formatIdentifierInput,
+		isLoading: userStore.isLoading,
+		error: userStore.error,
+	};
 };

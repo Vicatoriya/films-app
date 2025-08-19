@@ -12,6 +12,7 @@ export const REGISTER_USER = gql`
 			name
 			email
 			phone
+			sessionId
 		}
 	}
 `;
