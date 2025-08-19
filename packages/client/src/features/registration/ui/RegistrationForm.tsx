@@ -2,6 +2,7 @@ import { useRegistrationForm } from '../model/useRegistrationForm';
 import { Input } from '@shared/ui/Input';
 import { formatPhoneNumberInput } from '@shared/lib/formatPhoneNumberInput';
 import { Button } from '@shared/ui/Button';
+import { Toast } from '@widgets/toast/ui';
 
 export const RegistrationForm = () => {
 	const formik = useRegistrationForm();
@@ -77,6 +78,9 @@ export const RegistrationForm = () => {
 			</p>
 
 			<Button type="submit" label="Register" disabled={formik.isSubmitting} />
+			{formik.error && (
+				<Toast type="error" title="Registration error" message={formik.error} />
+			)}
 		</form>
 	);
 };

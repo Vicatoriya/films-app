@@ -48,11 +48,7 @@ export const LoginForm = () => {
 				Sign up
 			</Link>
 			{formik.error && (
-				<Toast
-					type="error"
-					title="Login error"
-					message={formik.error.message}
-				/>
+				<Toast type="error" title="Login error" message={formik.error} />
 			)}
 		</form>
 	);
